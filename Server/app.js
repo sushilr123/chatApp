@@ -4,6 +4,8 @@ const app = express();
 app.use(express.json());
 const authRoutes = require("./controllers/authControllers");
 const userRoutes = require("./controllers/usercontroller");
+const chatRouter = require("./controllers/chatcontroller");
+const messageRouter=require("./controllers/messageController")
 
 
 // Home route
@@ -14,6 +16,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/chat",chatRouter);
+app.use("/api/message",messageRouter);
 
 
 module.exports = app;
